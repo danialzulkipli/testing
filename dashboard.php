@@ -1,3 +1,16 @@
+<?php
+
+include 'config.php';
+
+session_start();
+
+if(!issset($_SESSION['username'])){
+    header('location:login.php');
+}
+
+?>
+
+
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -12,6 +25,8 @@
     <body>
         
         <?php include 'header.php';?>
+
+        Welcome, <?php echo $_POST["name"]; ?>
 
     </body>
 </html>

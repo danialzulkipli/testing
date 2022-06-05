@@ -6,8 +6,10 @@ if(iseet($_POST['submit'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $phoneno = mysqli_real_escape_string($conn, $_POST['phoneno']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $pass = md5($_POST['password']);
+    $cpass = md5($_POST['cpassword']);
 
     $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass' ";
 
@@ -19,9 +21,15 @@ if(iseet($_POST['submit'])){
 
     } else {
 
-        $insert = "INSERT INTO login(name, phoneno, username, password) VALUES ('$name', '$phoneno', '$username', '$password')";
-        mysqli_query($conn, $insert);
-        header('location:index.php');
+        if($pass != $cpass){
+            $error[] = 'password not match!';
+        } else {
+            $insert = "INSERT INTO login(username, password) VALUES ('$username', '$password')";
+            $insert = "INSERT INTO customer(name, phoneno, address) VALUES ('$name', '$phoneno', '$address')";
+            mysqli_query($conn, $insert);
+            header('location:login.php');
+        }
+        
     }
 
 };
@@ -44,7 +52,7 @@ if(iseet($_POST['submit'])){
       
         <div class="form-container">
 
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <h2>Daftar Akaun</h2>
 
                 <?php
@@ -55,11 +63,13 @@ if(iseet($_POST['submit'])){
                     };
                 ?>
 
-
+                
                 Nama:       <input type="text" name="name" required placeholder="Masukkan nama anda"><br><br>    
-                No telefon:     <input type="text" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>   
+                No telefon:     <input type="text" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>
+                Alamat:     <input type="text" name="address" required placeholder="Masukkan alamat anda"><br><br>
                 Nama Pengguna:       <input type="text" name="username" required placeholder="Masukkan nama pengguna anda"><br><br>
                 Kata Laluan Baru:       <input type="password" name="password" required placeholder="Masukkan kata laluan anda"><br><br>
+                Sahkan Kata Laluan Baru:    <input type="password" name="cpassword" required placeholder="Masukkan kata laluan semula untuk pengesahan"><br><br>    
                 <input type="submit" name="submit" value="Daftar" class="form-btn">
             </form>
         </div>

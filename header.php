@@ -3,6 +3,7 @@
 <div class="container-fluid p-5 text-white text-center">
     <h1>SISTEM TEMU JANJI VETERINAR</h1>
     <p>Klinik Haiwan Alby, Muar, Johor</p> 
+    <?php include 'navbar.php'; ?>
 </div>
 
 

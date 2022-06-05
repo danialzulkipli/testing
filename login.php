@@ -1,3 +1,48 @@
+<?php
+
+include 'config.php';
+
+if(iseet($_POST['submit'])){
+
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $phoneno = mysqli_real_escape_string($conn, $_POST['phoneno']);
+    $address = mysqli_real_escape_string($conn, $_POST['address']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $pass = md5($_POST['password']);
+    $cpass = md5($_POST['cpassword']);
+
+    $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass' ";
+
+    $result = mysqli_query($conn, $select);
+
+    if(mysqli_num_rows($result) > 0){
+
+        $row = mysqli_fetch_array($result);
+        
+        //ATTENTION!!! argument for user type
+        if($row['usertype'] == 'admin'){
+
+            $_SESSION['admin_name'] = $row['name'];
+            header('location: dashboard_admin.php');
+            
+        } else if ($row['usertype'] == 'customer'){
+
+            $_SESSION['admin_name'] = $row['name'];
+            header('location: dashboard_customer.php');
+
+        } else {
+            $error[] = 'Incorrect username or password'; 
+        }
+        
+    } 
+        
+}
+
+
+?>
+
+
+
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -13,51 +58,92 @@
         
         <?php include 'header.php';?>
 
-        <div class="container mt-5 p-4">
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="card px-5 py-5" id="logincustomer">
 
-            <div class="col">
-                        <h2 style="text-align:center;">Log Masuk Pelanggan</h2>
-                        <br>
-                        <form>
-                            <!-- Username input -->
-                            <div class="form-outline mb-4">
-                                <input type="text" id="username" class="form-control" />
-                                <label class="form-label" for="username">Nama Pengguna</label>
-                            </div>
+                            <h2 style="text-align:center;">Log Masuk Pelanggan</h2>
+                            <br>
 
-                            <!-- Password input -->
-                            <div class="form-outline mb-4">
-                                <input type="password" id="password" class="form-control" />
-                                <label class="form-label" for="password">Kata Laluan</label>
-                            </div>
+                            <?php
+                                if(isset($error)){
+                                    foreach($error as $error){
+                                        echo '<span class="error-msg">'.$error.'</span>';
+                                    };
+                                };
+                            ?>
 
-                            <!-- 2 column grid layout for inline styling -->
-                            <div class="row mb-4">
-                                <div class="text-center">
-                                <!-- Simple link -->
-                                <a href="forgotpassword.php">Lupa kata laluan?</a>
+
+                            <form>
+                                <!-- Username input -->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="username" class="form-control" />
+                                    <label class="form-label" for="username">Nama Pengguna</label>
                                 </div>
-                            </div>
 
-                            <!-- Submit button -->
-                            <div class="col d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
-                            </div>
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="password" class="form-control" />
+                                    <label class="form-label" for="password">Kata Laluan</label>
+                                </div>
 
-                            <!-- Register buttons -->
-                            <div class="text-center">
-                                <p>Anda pelanggan baru? <a href="register.php">Daftar sini</a></p>
-                            </div>
-                        </form>
+                                <!-- 2 column grid layout for inline styling -->
+                                <div class="row mb-4">
+                                    <div class="text-center">
+                                    <!-- Simple link -->
+                                    <a href="forgotpassword.php">Lupa kata laluan?</a>
+                                    </div>
+                                </div>
+
+                                <!-- Submit button -->
+                                <div class="col d-flex justify-content-center">
+                                    <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
+                                </div>
+
+                                <!-- Register buttons -->
+                                <div class="text-center">
+                                    <p>Anda pelanggan baru? <a href="register.php">Daftar sini</a></p>
+                                </div>
+
+                            </form>
+                    </div>
+                </div>
             </div>
-
         </div>
 
 
         
 
-
-
+        <?php include 'footer.php'; ?>
 
     </body>
 </html>
+
+<style>
+
+    /* background picture & overlay settings */
+    html, body {
+    background-image: url("media/cat_background.jpeg");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    }
+
+    .color-overlay {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    opacity: .7;
+    position: absolute;
+    }
+
+    .card {
+        background-color: white;
+    }
+
+</style>

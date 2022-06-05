@@ -13,7 +13,6 @@
         
         <?php include 'header.php';?>
 
-        
 
         <div class="container mt-5 p-4">
             <div class="row">
@@ -59,4 +58,29 @@
 <?php include 'footer.php'; ?>
 
 <style>
+
+    /* background picture settings */
+    html, body {
+    background-image: url("media/cat_background.jpeg");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    /* no scroll, fixed one page */
+    margin: 0;
+    height: 100%;
+    overflow: hidden
+    }
+
+    /* background overlay settings 
+    .color-overlay {
+    width: 100%;
+    height: 100%;
+    background: #FFFFFF;
+    opacity: .7;
+    position: absolute;
+    }
+    */
+
+    
 </style>
