@@ -1,48 +1,3 @@
-<?php
-/*
-include 'config.php';
-
-if(iseet($_POST['submit'])){
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $phoneno = mysqli_real_escape_string($conn, $_POST['phoneno']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-
-    $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass'";
-
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-
-        $row = mysqli_fetch_array($result);
-        
-        //ATTENTION!!! argument for user type
-        if($row['usertype'] == 'staff'){
-
-            $_SESSION['staff_name'] = $row['name'];
-            header('location: /staff/dashboard_staff.php');
-            
-        } else if ($row['usertype'] == 'customer'){
-
-            $_SESSION['admin_name'] = $row['name'];
-            header('location: dashboard_customer.php');
-
-        } else {
-            $error[] = 'Incorrect username or password'; 
-        }
-        
-    } 
-        
-}
-
-*/
-?>
-
-
-
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -63,7 +18,7 @@ if(iseet($_POST['submit'])){
                 <div class="col-md-6">
                     <div class="card px-5 py-5" id="logincustomer">
 
-                            <h2 style="text-align:center;">Log Masuk Pelanggan</h2>
+                            <h2 style="text-align:center;">Log Masuk Admin</h2>
                             <br>
 
                             <?php
@@ -101,10 +56,6 @@ if(iseet($_POST['submit'])){
                                     <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
                                 </div>
 
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>Anda pelanggan baru? <a href="register.php">Daftar sini</a></p>
-                                </div>
 
                             </form>
                     </div>
@@ -134,6 +85,7 @@ if(iseet($_POST['submit'])){
     overflow: hidden;
     }
 
+    /*
     .color-overlay {
     width: 100%;
     height: 100%;
@@ -141,7 +93,8 @@ if(iseet($_POST['submit'])){
     opacity: .7;
     position: absolute;
     }
-
+    */
+    
     .card {
         background-color: white;
     }

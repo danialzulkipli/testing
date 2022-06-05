@@ -1,5 +1,5 @@
 <?php
-
+/*
 include 'config.php';
 
 if(iseet($_POST['submit'])){
@@ -10,6 +10,7 @@ if(iseet($_POST['submit'])){
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $pass = md5($_POST['password']);
     $cpass = md5($_POST['cpassword']);
+    $usertype = $_POST['usertype'];
 
     $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass' ";
 
@@ -24,7 +25,7 @@ if(iseet($_POST['submit'])){
         if($pass != $cpass){
             $error[] = 'password not match!';
         } else {
-            $insert = "INSERT INTO login(username, password) VALUES ('$username', '$password')";
+            $insert = "INSERT INTO login(username, password) VALUES ('$username', '$password', '$usertype')";
             $insert = "INSERT INTO customer(name, phoneno, address) VALUES ('$name', '$phoneno', '$address')";
             mysqli_query($conn, $insert);
             header('location:login.php');
@@ -33,6 +34,8 @@ if(iseet($_POST['submit'])){
     }
 
 };
+
+*/
 ?>
 
 <html>
@@ -50,34 +53,68 @@ if(iseet($_POST['submit'])){
         
         <?php include 'header.php';?>
       
-        <div class="form-container">
+        <div class="container mt-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="card px-5 py-5" id="loginstaff">
+                        <form action="" method="post">
+                            <h2>Daftar Akaun</h2><br>
 
-            <form action="login.php" method="post">
-                <h2>Daftar Akaun</h2>
+                            <?php
+                                if(isset($error)){
+                                    foreach($error as $error){
+                                        echo '<span class="error-msg">'.$error.'</span>';
+                                    };
+                                };
+                            ?>
 
-                <?php
-                    if(isset($error)){
-                        foreach($error as $error){
-                            echo '<span class="error-msg">'.$error.'</span>';
-                        };
-                    };
-                ?>
+                            Nama:       <input type="text" class="form-control" formname="name" required placeholder="Masukkan nama anda"><br><br>    
+                            No telefon:     <input type="text" class="form-control" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>
+                            Alamat:     <input type="text" class="form-control" name="address" required placeholder="Masukkan alamat anda"><br><br>
+                            Nama Pengguna:       <input type="text" class="form-control" name="username" required placeholder="Masukkan nama pengguna anda"><br><br>
+                            Kata Laluan Baru:       <input type="password" class="form-control" ="password" required placeholder="Masukkan kata laluan anda"><br><br>
+                            Sahkan Kata Laluan Baru:    <input type="password" class="form-control" name="cpassword" required placeholder="Masukkan kata laluan semula untuk pengesahan"><br><br>    
+                            Jenis pengguna:     <select name="usertype" class="form-select">
+                                                    <option value="customer">Pelanggan</option>
+                                                    <option value="staff">Staf</option>
+                                                </select> <br><br>
+                            <!-- Submit button -->
+                            <div class="col d-flex justify-content-center">
+                                <button type="button" class="btn btn-primary btn-block mb-4">Daftar</button>
+                            </div>
+                        </form>
+                    </div>            
+                </div> 
+            </div>
+        </div>
 
-                
-                Nama:       <input type="text" name="name" required placeholder="Masukkan nama anda"><br><br>    
-                No telefon:     <input type="text" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>
-                Alamat:     <input type="text" name="address" required placeholder="Masukkan alamat anda"><br><br>
-                Nama Pengguna:       <input type="text" name="username" required placeholder="Masukkan nama pengguna anda"><br><br>
-                Kata Laluan Baru:       <input type="password" name="password" required placeholder="Masukkan kata laluan anda"><br><br>
-                Sahkan Kata Laluan Baru:    <input type="password" name="cpassword" required placeholder="Masukkan kata laluan semula untuk pengesahan"><br><br>    
-                <input type="submit" name="submit" value="Daftar" class="form-btn">
-            </form>
+        <!-- footer special segment - set position relative --> 
+        <div class="footer">
+            <footer>
+                <div class="text-center p-3 text-white">
+                © 2022 Sistem Temu Janji Veterinar Klinik Haiwan Alby
+                </div>
+            </footer>
         </div>
 
     </body>
 </html>
 
 <style>
+
+    /* background picture & overlay settings */
+    html, body {
+    background-image: url("media/cat_background.jpeg");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+    }
+    
+    h2{
+        text-align: center;
+    }
+
     .form-container form{
         padding: 20px;
         border-radius: 5px;
@@ -95,4 +132,24 @@ if(iseet($_POST['submit'])){
         margin: 8px 0;
         background: #eee;
     }
+
+    .card{
+        background-color: white;
+    }
+
+    .form-btn{
+        text-align: center;    
+    }
+
+    /* footer special segment - set position relative */
+    .footer {
+    background-color: #0a4275; 
+    position: relative; 
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    left: 0; 
+    right: 100; 
+    width: 100%;
+    }
+
 </style>

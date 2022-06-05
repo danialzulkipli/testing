@@ -1,4 +1,5 @@
 <?php
+/*
 
 include 'config.php';
 
@@ -7,6 +8,7 @@ session_start();
 if(!issset($_SESSION['username'])){
     header('location:login.php');
 }
+*/
 
 ?>
 
@@ -24,7 +26,7 @@ if(!issset($_SESSION['username'])){
 
     <body>
         
-        <?php include 'header.php';?>
+        <?php include 'header_dashboard.php';?>
 
         Welcome, <?php echo $_POST["name"]; ?>
 

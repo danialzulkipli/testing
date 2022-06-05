@@ -32,7 +32,7 @@
                         <div class="card-body" style="text-align:center;">
                             <h5 class="card-title">Log Masuk Staf</h5>
                             <p class="card-text">Log masuk akaun untuk staf Klinik Haiwan Alby</p>
-                            <a href="#" class="btn btn-primary">Log Masuk Staf</a>
+                            <a href="login_staff.php" class="btn btn-primary">Log Masuk Staf</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <div class="card-body" style="text-align:center;">
                             <h5 class="card-title">Log Masuk Pentadbir</h5>
                             <p class="card-text">Log masuk akaun untuk pentadbir Klinik Haiwan Alby</p>
-                            <a href="#" class="btn btn-primary">Log Masuk Pentadbir</a>
+                            <a href="login_admin.php" class="btn btn-primary">Log Masuk Pentadbir</a>
                         </div>
                     </div>
                 </div>
