@@ -39,9 +39,9 @@ if(!issset($_SESSION['username'])){
                     <div class="card card1 p-3">
                     
                         <!-- navbar dashboard --> 
-                        <a href="dashboard_admin.php" class="btn btn-primary">Dashboard</a><br>
-                        <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
-                        <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="dashboard_staff.php" class="btn btn-primary">Dashboard</a><br>
+                        <a href="appointment_staff.php" class="btn btn-primary">Buat Temu Janji</a><br>
+                        <a href="appointment_status_staff.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
                         <a href="profile_staff.php" class="btn btn-primary">Profil Staf</a><br>
                     </div>

@@ -39,11 +39,13 @@ if(!issset($_SESSION['username'])){
                     <div class="card card1 p-3">
                     
                         <!-- navbar dashboard --> 
-                        <a href="dashboard_staff.php" class="btn btn-primary">Dashboard</a><br>
-                        <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
-                        <a href="appointment_status_staff.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="dashboard_admin.php" class="btn btn-primary">Dashboard</a><br>
+                        <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
+                        <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                       <a href="profile_staff.php" class="btn btn-primary">Profil Staf</a><br>
+                        <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
+                        <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
+                        <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
                     </div>
                 </div>
 
@@ -53,46 +55,14 @@ if(!issset($_SESSION['username'])){
                 <div class="col-md-9">
                     <!--header kecil di bawah header utama -->
                     <div class="card card2 p-3">
-                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
+                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, Pentadbir</div>
                     </div>
 
 
                     <div class="container mt-3">
-                        <h2>Status Temu Janji</h2>
+                        <h2>Senarai Pelanggan Berdaftar</h2>
                         <br>            
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th name="id_temujanji">#</th>
-                                <th name="nama_pelanggan">Nama</th>
-                                <th name="notel_pelanggan">No Telefon</th>
-                                <th name="tarikh_temujanji">Tarikh</th>
-                                <th name="masa_temujanji">Masa</th>
-                                <th name="nama_haiwan">Nama Haiwan</th>
-                                <th name="status">Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>COMPLETED</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>PENDING</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        
                     </div>
 
 
