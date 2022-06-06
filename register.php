@@ -1,7 +1,15 @@
 <?php
-/*
+
 include 'config.php';
 
+error_reporting(0);
+
+session_start();
+
+if (isset($_SESSION['username'])){
+    header("location: index.php");
+}
+/*
 if(iseet($_POST['submit'])){
 
     $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -34,8 +42,47 @@ if(iseet($_POST['submit'])){
     }
 
 };
-
 */
+
+
+/*
+if (isset($_POST['submit'])) {
+
+    $name = $_POST['name'];
+    $phoneno = $_POST['phoneno'];
+    $address = $_POST['address'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $cpass = $_POST['cpassword'];
+    $usertype = $_POST['usertype'];
+
+    if($password == $cpass){
+        
+        $sql = "SELECT * FROM login WHERE username = '$username'";
+        $result = mysqli_query($conn, $sql);
+        
+        if(!$result->num_rows->0){
+            $sql = "INSERT INTO login(username, password) VALUES ('$username', '$password', '$usertype')";
+            $sql = "INSERT INTO customer(name, phoneno, address) VALUES ('$name', '$phoneno', '$address')";
+            $result = mysqli_query($conn, $sql);
+
+            if($result) {
+                echo "<script>alert('Wow! User Registration Completed.')</script>";
+				$username = "";
+				$_POST['password'] = "";
+				$_POST['cpassword'] = "";
+            } else {
+                echo "<script>alert('Woops! Something Wrong Went.')</script>";
+            }
+        } else {
+            echo "<script>alert('User already exists.')</script>";
+        }
+    } else {
+        echo "<script>alert('Password Not Matched.')</script>";
+    }
+}
+*/
+
 ?>
 
 <html>
@@ -80,7 +127,7 @@ if(iseet($_POST['submit'])){
                                                 </select> <br><br>
                             <!-- Submit button -->
                             <div class="col d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary btn-block mb-4">Daftar</button>
+                                <button type="button" name="submit" class="btn btn-primary btn-block mb-4">Daftar</button>
                             </div>
                         </form>
                     </div>            

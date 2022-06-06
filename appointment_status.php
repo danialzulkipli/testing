@@ -56,46 +56,49 @@ if(!issset($_SESSION['username'])){
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
                     </div>
 
+
                     <div class="container mt-3">
-
-                        <h2>Buat Temu Janji</h2>
-                
-                        <form action="">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" placeholder="Enter Date">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="time" class="form-control" placeholder="Enter Email">
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Tujuan Temu Janji</option>
-                                        <option value="tujuan_rawatan">Rawatan</option>
-                                        <option value="tujuan_vaksin">Vaksinasi</option>
-                                        <option value="tujuan_mandul">Pemandulan</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Pilih haiwan yang didaftarkan</option>
-                                        <option value="1">Haiwan 1</option>
-                                        <option value="2">Haiwan 2</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mt-5">                        
-                                    <button type="submit" class="btn btn-primary float-end">Buat Temu Janji</button>
-                                    <a href="dashboard.php" type="button" class="btn btn-outline-secondary float-end me-2">Batal</a>
-                                </div>
-                            </div>
-                        </form>
-
+                        <h2>Status Temu Janji</h2>
+                        <br>            
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th name="id_temujanji">#</th>
+                                <th name="nama_pelanggan">Nama</th>
+                                <th name="notel_pelanggan">No Telefon</th>
+                                <th name="tarikh_temujanji">Tarikh</th>
+                                <th name="masa_temujanji">Masa</th>
+                                <th name="nama_haiwan">Nama Haiwan</th>
+                                <th name="status">Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Doe</td>
+                                <td>0123456789</td>
+                                <td>01/01/2022</td>
+                                <td>12:34:56</td>
+                                <td>Tompok</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Doe</td>
+                                <td>0123456789</td>
+                                <td>01/01/2022</td>
+                                <td>12:34:56</td>
+                                <td>Tompok</td>
+                                <td>PENDING</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
 
 
                 </div>
 
-                
+
             </div>
         </div>
 

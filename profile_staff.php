@@ -1,18 +1,3 @@
-<?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
-?>
-
-
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -58,44 +43,64 @@ if(!issset($_SESSION['username'])){
 
                     <div class="container mt-3">
 
-                        <h2>Buat Temu Janji</h2>
-                
-                        <form action="">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" placeholder="Enter Date">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="time" class="form-control" placeholder="Enter Email">
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Tujuan Temu Janji</option>
-                                        <option value="tujuan_rawatan">Rawatan</option>
-                                        <option value="tujuan_vaksin">Vaksinasi</option>
-                                        <option value="tujuan_mandul">Pemandulan</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Pilih haiwan yang didaftarkan</option>
-                                        <option value="1">Haiwan 1</option>
-                                        <option value="2">Haiwan 2</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mt-5">                        
-                                    <button type="submit" class="btn btn-primary float-end">Buat Temu Janji</button>
-                                    <a href="dashboard.php" type="button" class="btn btn-outline-secondary float-end me-2">Batal</a>
-                                </div>
+                        <h2>Profil Staf</h2>
+
+                        <div class="col-lg-8">
+                        <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Nama</p>
                             </div>
-                        </form>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
+                            </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">No Telefon</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
+                            </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Alamat</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
+                            </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Nama Haiwan</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
+                            </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Spesies</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
 
                     </div>
 
 
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -140,6 +145,27 @@ if(!issset($_SESSION['username'])){
     /* setting untuk column sebelah left sidebar (main content) */
     .col-md-9{
         padding: 10px 15px 10px 15px;
+    }
+
+    /* setting tulisan untuk statistik */
+    .type{
+        font-family: Helvetica;
+        font-size: 18px; 
+        font-weight: 500;   
+    }
+
+    .number{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .mb-0 {
+        font-family: Helvetica;
+        font-weight: 800;
+    }
+
+    .text-muted {
+        font-weight: 500;
     }
 
 
