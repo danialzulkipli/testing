@@ -56,29 +56,6 @@ if(!issset($_SESSION['username'])){
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
                     </div>
 
-                    <!--counter temujanji, bilangan pelanggan dll -->
-                    <div class="d-flex flex-row gap-3">
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Pelanggan Berdaftar pada Sistem</span><span class="number"><?php /*sql query kira pelanggan*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Temu Janji Minggu Ini</span><span class="number"><?php /*sql query kira appointment*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Doktor Bertugas</span><span class="number"><?php /*sql query kira doktor bertugas*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Haiwan Berdaftar pada Sistem</span><span class="number"><?php /*sql query kira haiwan berdaftar*/?></span></div>
-                            </div>    
-                        </div>
-                    </div>
                 </div>
 
 
@@ -126,18 +103,6 @@ if(!issset($_SESSION['username'])){
     /* setting untuk column sebelah left sidebar (main content) */
     .col-md-9{
         padding: 10px 15px 10px 15px;
-    }
-
-    /* setting tulisan untuk statistik */
-    .type{
-        font-family: Helvetica;
-        font-size: 18px; 
-        font-weight: 500;   
-    }
-
-    .number{
-        font-size: 20px;
-        font-weight: 700;
     }
 
 
