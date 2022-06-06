@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 06, 2022 at 01:06 AM
+-- Generation Time: Jun 06, 2022 at 04:24 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -82,6 +82,13 @@ CREATE TABLE `customer` (
   `customer_address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id_customer`, `customer_name`, `customer_phoneno`, `customer_address`) VALUES
+(1, 'Danial', '0123334444', 'Batu Pahat Johor');
+
 -- --------------------------------------------------------
 
 --
@@ -100,7 +107,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`id_user`, `username`, `password`, `usertype`) VALUES
-(1, 'admin', 'admin', 'admin');
+(1, 'admin', 'admin', 'admin'),
+(2, 'test', 'staff', 'staff'),
+(3, 'danial', '123', 'pelanggan');
 
 -- --------------------------------------------------------
 
@@ -114,6 +123,13 @@ CREATE TABLE `staff` (
   `staff_phoneno` varchar(255) NOT NULL,
   `staff_address` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id_staff`, `staff_name`, `staff_phoneno`, `staff_address`) VALUES
+(1, 'Staff Test', '0137778888', 'Shah Alam Selangor');
 
 --
 -- Indexes for dumped tables
@@ -181,19 +197,19 @@ ALTER TABLE `appointment`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_customer` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_customer` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `staff`
 --
 ALTER TABLE `staff`
-  MODIFY `id_staff` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_staff` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
