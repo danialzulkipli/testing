@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 08, 2022 at 04:40 PM
+-- Generation Time: Jun 08, 2022 at 05:26 PM
 -- Server version: 5.7.34
 -- PHP Version: 7.4.21
 
@@ -131,6 +131,18 @@ CREATE TABLE `staff` (
 INSERT INTO `staff` (`id_staff`, `staff_name`, `staff_phoneno`, `staff_address`) VALUES
 (1, 'Staff Test', '0137778888', 'Shah Alam Selangor');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `treatment_list`
+--
+
+CREATE TABLE `treatment_list` (
+  `id_treatment` int(255) NOT NULL,
+  `treatment_name` varchar(255) NOT NULL,
+  `treatment_price` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -172,6 +184,12 @@ ALTER TABLE `staff`
   ADD PRIMARY KEY (`id_staff`);
 
 --
+-- Indexes for table `treatment_list`
+--
+ALTER TABLE `treatment_list`
+  ADD PRIMARY KEY (`id_treatment`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -210,6 +228,12 @@ ALTER TABLE `login`
 --
 ALTER TABLE `staff`
   MODIFY `id_staff` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `treatment_list`
+--
+ALTER TABLE `treatment_list`
+  MODIFY `id_treatment` int(255) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
