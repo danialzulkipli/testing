@@ -61,7 +61,7 @@ if(!issset($_SESSION['username'])){
 
 
                     <div class="container mt-3">
-                        <h2>Senarai Pelanggan Berdaftar</h2>
+                        <h2>Senarai Staf Berdaftar</h2>
                         <br>            
                         
                     </div>
