@@ -61,41 +61,9 @@ if(!issset($_SESSION['username'])){
 
 
                     <div class="container mt-3">
-                        <h2>Status Temu Janji</h2>
+                        <h2>Senarai Pelanggan Berdaftar</h2>
                         <br>            
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th name="id_temujanji">#</th>
-                                <th name="nama_pelanggan">Nama</th>
-                                <th name="notel_pelanggan">No Telefon</th>
-                                <th name="tarikh_temujanji">Tarikh</th>
-                                <th name="masa_temujanji">Masa</th>
-                                <th name="nama_haiwan">Nama Haiwan</th>
-                                <th name="status">Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>COMPLETED</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>PENDING</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        
                     </div>
 
 
