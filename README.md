@@ -6,7 +6,7 @@
 				     KLINIK HAIWAN ALBY
 =====================================================================================
 
-1: Layari laman web prototaip sistem dengan pautan di bawah:
+1. Layari laman web prototaip sistem dengan pautan di bawah:
 	https://.....
 
 2. Pada laman index.php, terdapat tiga butang log masuk untuk pelanggan, staf klinik dan pentadbir sistem. Pelanggan boleh log masuk menggunakan login detail pelanggan, staf dan pentadbir sistem akan diberikan di bawah.
