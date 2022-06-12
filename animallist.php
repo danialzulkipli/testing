@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php'
 ?>
 
 
@@ -28,9 +19,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -39,11 +27,13 @@ if(!issset($_SESSION['username'])){
                     <div class="card card1 p-3">
                     
                         <!-- navbar dashboard --> 
-                        <a href="dashboard_staff.php" class="btn btn-primary">Dashboard</a><br>
+                        <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
                         <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
-                        <a href="appointment_status_staff.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
                         <hr class="hline">
-                       <a href="profile_staff.php" class="btn btn-primary">Profil Staf</a><br>
+                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
+                        <a href="animallist.php" class="btn btn-primary">Senarai Haiwan Berdaftar</a><br>
                     </div>
                 </div>
 
@@ -53,46 +43,42 @@ if(!issset($_SESSION['username'])){
                 <div class="col-md-9">
                     <!--header kecil di bawah header utama -->
                     <div class="card card2 p-3">
-                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
+                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, Pentadbir</div>
                     </div>
 
 
                     <div class="container mt-3">
-                        <h2>Status Temu Janji</h2>
-                        <br>            
+                        <h2>Senarai Pelanggan Berdaftar</h2>
+                        <br>  
+                        
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th name="id_temujanji">#</th>
-                                <th name="nama_pelanggan">Nama</th>
-                                <th name="notel_pelanggan">No Telefon</th>
-                                <th name="tarikh_temujanji">Tarikh</th>
-                                <th name="masa_temujanji">Masa</th>
-                                <th name="nama_haiwan">Nama Haiwan</th>
-                                <th name="status">Status</th>
+                                <th>#</th>
+                                <th>Nama Haiwan</th>
+                                <th>Jantina</th>
+                                <th>Warna</th>
+                                <th>Spesies</th>
+                                <th>Berat</th>
+                                <th>Baka</th>
                             </tr>
                             </thead>
+
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>COMPLETED</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>PENDING</td>
-                            </tr>
+                                <?php $sql_animal="SELECT * FROM animal";
+                                    $result_animal = $mysqli->query($sql_animal);
+                                    if(mysqli_num_rows($result_animal)>=1){
+                                        while ($row3 = $result_animal->fetch_assoc()) {
+
+                                            echo "<tr><td>".$row3["id_animal"]."</td><td>".$row3["animal_name"]."</td><td>".$row3["animal_gender"]."</td><td>".
+                                            $row3["animal_colour"]."</td><td>".$row3["animal_species"]."</td><td>".$row3["animal_weight"]."</td><td>".$row3["animal_breed"]."</td></tr>";
+                                        }
+                                        echo "</table";
+                                    }
+                                ?>
                             </tbody>
                         </table>
+                                                
                     </div>
 
 

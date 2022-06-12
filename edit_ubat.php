@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php';
 ?>
 
 
@@ -58,46 +49,35 @@ if(!issset($_SESSION['username'])){
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, Pentadbir</div>
                     </div>
 
+
                     <div class="container mt-3">
+                        <h2>Buang Ubat</h2>
+                        <br>
+                        
+                        <form action="edit_ubat.php" method="post">
 
-                        <h2>Buat Temu Janji</h2>
-                
-                        <form action="">
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="date" class="form-control" placeholder="Enter Date">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="time" class="form-control" placeholder="Enter Email">
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Tujuan Temu Janji</option>
-                                        <option value="tujuan_rawatan">Rawatan</option>
-                                        <option value="tujuan_vaksin">Vaksinasi</option>
-                                        <option value="tujuan_mandul">Pemandulan</option>
-                                    </select>
-                                </div>
-                                <div class="col-12">
-                                    <select class="form-select">
-                                        <option selected>Pilih haiwan yang didaftarkan</option>
-                                        <option value="1">Haiwan 1</option>
-                                        <option value="2">Haiwan 2</option>
-                                    </select>
-                                </div>
-                                <div class="col-12 mt-5">                        
-                                    <button type="submit" class="btn btn-primary float-end">Buat Temu Janji</button>
-                                    <a href="dashboard.php" type="button" class="btn btn-outline-secondary float-end me-2">Batal</a>
-                                </div>
-                            </div>
+                            <?php include 'errors.php'; ?>
+
+                            <div class="input-group">
+                                <label>ID Ubat: &ensp; </label>
+                                <br>
+                                <input type="text" name="id_treatment2">
+                                
+	                        </div>
+                            <br>
+                            <div class="input-group">
+		                        <button type="submit" name="delete_ubat" class="btn btn-primary">Buang Ubat</button>
+	                        </div>
+
                         </form>
-
+                    
+                                                
                     </div>
 
 
                 </div>
 
-                
+
             </div>
         </div>
 
@@ -119,16 +99,6 @@ if(!issset($_SESSION['username'])){
     .card2 {
         background-color: 646FD4;
         border-radius: 0px;
-    }
-
-    /* setting statistik */
-    .cardchild {
-        height: 150px;
-        width: 350px;
-        border: 0px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #9BA3EB;
     }
 
     /* setting tulisan untuk greeting user */

@@ -45,42 +45,28 @@ include 'booking_server.php';
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_SESSION["username"]; ?> </div>
                     </div>
 
-
+                    <!--BUANG TEMU JANJI -->
                     <div class="container mt-3">
-                        <h2>Status Temu Janji</h2>
-                        <br>            
-                        <table class="table table-bordered">
+                        <h2>Buang Temu Janji</h2>
 
-                            <thead>
-                            <tr>
-                                <th name="id_temujanji">#</th>
-                                <th name="tarikh_temujanji">Tarikh</th>
-                                <th name="masa_temujanji">Masa</th>
-                                <th name="nama_haiwan">Nama Haiwan</th>
-                                <th name="status">ID Staf</th>
-                            </tr>
-                            </thead>
+                        <form action="deleteappointment.php" method="post">
 
-                            <tbody>
+                            <?php include 'errors.php'; ?>
 
-                            <?php
+                            <div class="input-group">
+                                <label>ID Temu Janji: &ensp; </label>
+                                <br>
+                                <input type="text" name="id_appointment2">
+                                
+	                        </div>
+                            <br>
+                            <div class="input-group">
+		                        <button type="submit" name="cancel" class="btn btn-primary">Batal Temu Janji</button>
+	                        </div>
 
-                                $sql_apptstatus = "SELECT * FROM appointment";
-                                $result_apptstatus = $mysqli -> query($sql_apptstatus);
-                                if(mysqli_num_rows($result_apptstatus) >= 1){
-                                    while ($row_apptstatus = $result_apptstatus -> fetch_assoc()){
-
-                                        echo "<tr><td>".$row_apptstatus["id_appointment"]."</td><td>".$row_apptstatus["date"]."</td><td>"
-                                        .$row_apptstatus["time"]."</td><td>".$row_apptstatus["animal_name"]."</td><td>".$row_apptstatus["staff_id"]."</td></tr>";
-                                    }
-
-                                }
-                            ?>
-                            </tbody>
-                        </table>
+                        </form>
                     </div>
-
-
+                
                 </div>
 
 
@@ -128,6 +114,18 @@ include 'booking_server.php';
     /* setting untuk column sebelah left sidebar (main content) */
     .col-md-9{
         padding: 10px 15px 10px 15px;
+    }
+
+    /* setting tulisan untuk statistik */
+    .type{
+        font-family: Helvetica;
+        font-size: 18px; 
+        font-weight: 500;   
+    }
+
+    .number{
+        font-size: 20px;
+        font-weight: 700;
     }
 
 

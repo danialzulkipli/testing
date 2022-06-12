@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php';
 ?>
 
 

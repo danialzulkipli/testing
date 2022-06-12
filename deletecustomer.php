@@ -26,13 +26,13 @@ include 'booking_server.php';
                     <div class="card card1 p-3">
                     
                         <!-- navbar dashboard --> 
-                        <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
-                        <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
-                        <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
-                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
+                        <a href="dashboard_admin.php" class="btn btn-primary">Dashboard</a><br>
+                        <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
+                        <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
-                        <a href="animallist.php" class="btn btn-primary">Senarai Haiwan Berdaftar</a><br>
+                        <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
+                        <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
+                        <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
                     </div>
                 </div>
 
@@ -45,42 +45,28 @@ include 'booking_server.php';
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_SESSION["username"]; ?> </div>
                     </div>
 
-
+                    <!--BUANG TEMU JANJI -->
                     <div class="container mt-3">
-                        <h2>Status Temu Janji</h2>
-                        <br>            
-                        <table class="table table-bordered">
+                        <h2>Buang Pelanggan</h2>
 
-                            <thead>
-                            <tr>
-                                <th name="id_temujanji">#</th>
-                                <th name="tarikh_temujanji">Tarikh</th>
-                                <th name="masa_temujanji">Masa</th>
-                                <th name="nama_haiwan">Nama Haiwan</th>
-                                <th name="status">ID Staf</th>
-                            </tr>
-                            </thead>
+                        <form action="deletecustomer.php" method="post">
 
-                            <tbody>
+                            <?php include 'errors.php'; ?>
 
-                            <?php
+                            <div class="input-group">
+                                <label>ID Pelanggan: &ensp; </label>
+                                <br>
+                                <input type="text" name="id_cust2">
+                                
+	                        </div>
+                            <br>
+                            <div class="input-group">
+		                        <button type="submit" name="deleteCust" class="btn btn-primary">Buang Pelanggan</button>
+	                        </div>
 
-                                $sql_apptstatus = "SELECT * FROM appointment";
-                                $result_apptstatus = $mysqli -> query($sql_apptstatus);
-                                if(mysqli_num_rows($result_apptstatus) >= 1){
-                                    while ($row_apptstatus = $result_apptstatus -> fetch_assoc()){
-
-                                        echo "<tr><td>".$row_apptstatus["id_appointment"]."</td><td>".$row_apptstatus["date"]."</td><td>"
-                                        .$row_apptstatus["time"]."</td><td>".$row_apptstatus["animal_name"]."</td><td>".$row_apptstatus["staff_id"]."</td></tr>";
-                                    }
-
-                                }
-                            ?>
-                            </tbody>
-                        </table>
+                        </form>
                     </div>
-
-
+                
                 </div>
 
 
@@ -128,6 +114,18 @@ include 'booking_server.php';
     /* setting untuk column sebelah left sidebar (main content) */
     .col-md-9{
         padding: 10px 15px 10px 15px;
+    }
+
+    /* setting tulisan untuk statistik */
+    .type{
+        font-family: Helvetica;
+        font-size: 18px; 
+        font-weight: 500;   
+    }
+
+    .number{
+        font-size: 20px;
+        font-weight: 700;
     }
 
 

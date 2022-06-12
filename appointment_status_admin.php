@@ -43,7 +43,6 @@ if(!issset($_SESSION['username'])){
                         <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                        <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
                         <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
                         <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
                         <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>

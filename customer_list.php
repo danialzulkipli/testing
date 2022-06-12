@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php'
 ?>
 
 
@@ -28,9 +19,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -43,7 +31,6 @@ if(!issset($_SESSION['username'])){
                         <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                        <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
                         <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
                         <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
                         <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
@@ -62,8 +49,34 @@ if(!issset($_SESSION['username'])){
 
                     <div class="container mt-3">
                         <h2>Senarai Pelanggan Berdaftar</h2>
-                        <br>            
+                        <br>  
+
+                        <a href="deletecustomer.php" class="btn btn-primary">Buang Pelanggan</a><br><br>
                         
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Pelanggan</th>
+                                <th>Alamat</th>
+                                <th>No Telefon</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php $sql_cs="SELECT * FROM customer";
+                                    $result3 = $mysqli->query($sql_cs);
+                                    if(mysqli_num_rows($result3)>=1){
+                                        while ($row3 = $result3->fetch_assoc()) {
+
+                                            echo "<tr><td>".$row3["id_customer"]."</td><td>".$row3["customer_name"]."</td><td>".$row3["customer_address"]."</td><td>".$row3["customer_phoneno"]."</td></tr>";
+                                        }
+                                        echo "</table";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                                                
                     </div>
 
 

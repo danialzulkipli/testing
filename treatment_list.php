@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php';
 ?>
 
 
@@ -43,7 +34,6 @@ if(!issset($_SESSION['username'])){
                         <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                        <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
                         <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
                         <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
                         <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
@@ -64,6 +54,32 @@ if(!issset($_SESSION['username'])){
                         <h2>Senarai Ubat Haiwan Berdaftar</h2>
                         <br>            
                         
+                        <a href="tambahubat.php" class="btn btn-primary">Tambah Ubat</a>
+                        <a href="edit_ubat.php" class="btn btn-primary">Buang Ubat</a><br><br>
+                        
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Ubat</th>
+                                <th>Harga Ubat</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php $sql_ubat="SELECT * FROM treatment_list";
+                                    $result_ubat = $mysqli->query($sql_ubat);
+                                    if(mysqli_num_rows($result_ubat)>=1){
+                                        while ($row3 = $result_ubat->fetch_assoc()) {
+
+                                            echo "<tr><td>".$row3["id_treatment"]."</td><td>".$row3["treatment_name"]."</td><td>".$row3["treatment_price"]."</td></tr>";
+                                        }
+                                        echo "</table>";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                                                
                     </div>
 
 
@@ -91,16 +107,6 @@ if(!issset($_SESSION['username'])){
     .card2 {
         background-color: 646FD4;
         border-radius: 0px;
-    }
-
-    /* setting statistik */
-    .cardchild {
-        height: 150px;
-        width: 350px;
-        border: 0px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #9BA3EB;
     }
 
     /* setting tulisan untuk greeting user */

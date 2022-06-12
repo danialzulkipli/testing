@@ -1,3 +1,8 @@
+<?php
+error_reporting(0);
+include 'server.php';
+?>
+
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -30,16 +35,21 @@
                             ?>
 
 
-                            <form>
+                            <form action="" method="post">
+
+                                <?php 
+                                    include 'errors.php';
+                                ?>
+
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="username" class="form-control" />
+                                    <input type="text" name="staffusername" class="form-control" />
                                     <label class="form-label" for="username">Nama Pengguna</label>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="password" class="form-control" />
+                                    <input type="password" name="staffpassword" class="form-control" />
                                     <label class="form-label" for="password">Kata Laluan</label>
                                 </div>
 
@@ -53,12 +63,7 @@
 
                                 <!-- Submit button -->
                                 <div class="col d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
-                                </div>
-
-                                <!-- Register buttons -->
-                                <div class="text-center">
-                                    <p>Anda staf baru? <a href="register.php">Daftar sini</a></p>
+                                    <button type="submit" name="login_staff" class="btn btn-primary btn-block mb-4">Log Masuk</button>
                                 </div>
 
                             </form>

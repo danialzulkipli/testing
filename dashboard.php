@@ -1,17 +1,7 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'server.php';
 ?>
-
 
 <html>
     <head>
@@ -28,9 +18,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -42,8 +29,10 @@ if(!issset($_SESSION['username'])){
                         <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
                         <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
                         <hr class="hline">
-                       <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
+                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
+                        <a href="animallist.php" class="btn btn-primary">Senarai Haiwan Berdaftar</a><br>
                     </div>
                 </div>
 
@@ -53,7 +42,7 @@ if(!issset($_SESSION['username'])){
                 <div class="col-md-9">
                     <!--header kecil di bawah header utama -->
                     <div class="card card2 p-3">
-                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
+                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_SESSION["username"]; ?> </div>
                     </div>
 
                     <!--counter temujanji, bilangan pelanggan dll -->
