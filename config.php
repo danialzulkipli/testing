@@ -1,7 +1,12 @@
 <?php
 
+$server = "localhost";
+$user = "root";
+$password = "";
+$database = "klinikalby";
+
 //create connection
-$conn = mysqli_connect('localhost','root','1234','klinikalby');
+$conn = mysqli_connect($server, $user, $password, $database);
 
 //check connection
 /*

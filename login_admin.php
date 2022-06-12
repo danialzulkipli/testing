@@ -1,3 +1,8 @@
+<?php
+error_reporting(0);
+include 'server.php';
+?>
+
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -21,25 +26,21 @@
                             <h2 style="text-align:center;">Log Masuk Admin</h2>
                             <br>
 
-                            <?php
-                                if(isset($error)){
-                                    foreach($error as $error){
-                                        echo '<span class="error-msg">'.$error.'</span>';
-                                    };
-                                };
-                            ?>
+                            <form action="" method="post">
 
+                                <?php 
+                                    include 'errors.php';
+                                ?>
 
-                            <form>
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="username" class="form-control" />
+                                    <input type="text" name="adminusername" class="form-control" />
                                     <label class="form-label" for="username">Nama Pengguna</label>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="password" class="form-control" />
+                                    <input type="password" name="adminpassword" class="form-control" />
                                     <label class="form-label" for="password">Kata Laluan</label>
                                 </div>
 
@@ -53,7 +54,7 @@
 
                                 <!-- Submit button -->
                                 <div class="col d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
+                                    <button type="submit" name="login_admin" class="btn btn-primary btn-block mb-4">Log Masuk</button>
                                 </div>
 
 

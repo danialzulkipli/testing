@@ -28,9 +28,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -42,6 +39,7 @@ if(!issset($_SESSION['username'])){
                         <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
                         <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
                         <hr class="hline">
                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
                     </div>
@@ -63,13 +61,13 @@ if(!issset($_SESSION['username'])){
                         <form action="">
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <input type="date" class="form-control" placeholder="Enter Date">
+                                    <input type="date" name="date" class="form-control" placeholder="Enter Date">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="time" class="form-control" placeholder="Enter Email">
+                                    <input type="time" name="time" class="form-control" placeholder="Enter Email">
                                 </div>
                                 <div class="col-12">
-                                    <select class="form-select">
+                                    <select class="form-select" name="tujuan">
                                         <option selected>Tujuan Temu Janji</option>
                                         <option value="tujuan_rawatan">Rawatan</option>
                                         <option value="tujuan_vaksin">Vaksinasi</option>

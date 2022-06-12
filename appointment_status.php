@@ -1,17 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+include 'booking_server.php';
 ?>
-
 
 <html>
     <head>
@@ -28,9 +17,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -42,6 +28,7 @@ if(!issset($_SESSION['username'])){
                         <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
                         <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
                         <hr class="hline">
                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
                     </div>
@@ -61,6 +48,7 @@ if(!issset($_SESSION['username'])){
                         <h2>Status Temu Janji</h2>
                         <br>            
                         <table class="table table-bordered">
+
                             <thead>
                             <tr>
                                 <th name="id_temujanji">#</th>
@@ -72,7 +60,21 @@ if(!issset($_SESSION['username'])){
                                 <th name="status">Status</th>
                             </tr>
                             </thead>
+
                             <tbody>
+
+                            <?php
+
+                                $sql_apptstatus = "SELECT * FROM customer, doctor WHERE name = ('$userprofile') AND id_staff = id_staff";
+                                $result_apptstatus = $mysqli -> query($sql_apptstatus);
+                                if(mysqli_num_rows($result_apptstatus) >= 1){
+                                    while ($row_apptstatus = $result_apptstatus -> fetch_assoc()){
+
+                                        echo "<tr><td>" . $row_apptstatus["id_appointment"] . "</td><td>" . $row_apptstatus["date"] . "</td><td>" . $row_apptstatus["time"] . "</td><td>" . $row_apptstatus["staff_name"] . "</td></tr>";
+                                    }
+
+                                }
+                            ?>
                             <tr>
                                 <td>1</td>
                                 <td>Doe</td>
@@ -81,15 +83,6 @@ if(!issset($_SESSION['username'])){
                                 <td>12:34:56</td>
                                 <td>Tompok</td>
                                 <td>COMPLETED</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Doe</td>
-                                <td>0123456789</td>
-                                <td>01/01/2022</td>
-                                <td>12:34:56</td>
-                                <td>Tompok</td>
-                                <td>PENDING</td>
                             </tr>
                             </tbody>
                         </table>

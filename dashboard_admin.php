@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'booking_server.php';
 ?>
 
 
@@ -28,9 +19,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -46,6 +34,7 @@ if(!issset($_SESSION['username'])){
                         <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
                         <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
                         <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
+                        <a href="deletestaff_admin.php" class="btn btn-primary">Buang Staf</a><br>
                         <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
                     </div>
                 </div>

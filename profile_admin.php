@@ -31,6 +31,7 @@
                         <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
                         <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
                         <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
+                        <a href="deletestaff_admin.php" class="btn btn-primary">Buang Staf</a><br>
                         <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
                     </div>
                 </div>

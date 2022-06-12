@@ -26,12 +26,15 @@ include 'server.php';
                     <div class="card card1 p-3">
                     
                         <!-- navbar dashboard --> 
-                        <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
-                        <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
-                        <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
-                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
+                        <a href="dashboard_admin.php" class="btn btn-primary">Dashboard</a><br>
+                        <a href="appointment_admin.php" class="btn btn-primary">Buat Temu Janji</a><br>
+                        <a href="appointment_status_admin.php" class="btn btn-primary">Status Temu Janji</a><br>
                         <hr class="hline">
-                       <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
+                        <a href="profile_admin.php" class="btn btn-primary">Profil Pentadbir</a><br>
+                        <a href="customer_list.php" class="btn btn-primary">Senarai Pelanggan</a><br>
+                        <a href="staff_list.php" class="btn btn-primary">Senarai Staf</a><br>
+                        <a href="deletestaff_admin.php" class="btn btn-primary">Buang Staf</a><br>
+                        <a href="treatment_list.php" class="btn btn-primary">Senarai Ubat Haiwan</a><br>
                     </div>
                 </div>
 
@@ -44,29 +47,15 @@ include 'server.php';
                         <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_SESSION["username"]; ?> </div>
                     </div>
 
-                    <!--counter temujanji, bilangan pelanggan dll -->
-                    <div class="d-flex flex-row gap-3">
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Pelanggan Berdaftar pada Sistem</span><span class="number"><?php /*sql query kira pelanggan*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Temu Janji Minggu Ini</span><span class="number"><?php /*sql query kira appointment*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Doktor Bertugas</span><span class="number"><?php /*sql query kira doktor bertugas*/?></span></div>
-                            </div>    
-                        </div>
-                        <div class="card cardchild mt-4 p-3 px-5 py-4">
-                            <div class="d-flex p-2 mt-2 justify-content-between rounded">
-                                <div class="d-flex flex-column"><span class="type">Bilangan Haiwan Berdaftar pada Sistem</span><span class="number"><?php /*sql query kira haiwan berdaftar*/?></span></div>
-                            </div>    
-                        </div>
+                    <!--BUANG TEMU JANJI -->
+                    <div class="container mt-3">
+                        <h2>Buang Staf</h2>
+
+                        <form action="deletestaff_admin.php" method="post">
+
+                        </form>
                     </div>
+                
                 </div>
 
 

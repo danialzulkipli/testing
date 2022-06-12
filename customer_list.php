@@ -28,9 +28,6 @@ if(!issset($_SESSION['username'])){
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 

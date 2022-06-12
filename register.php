@@ -1,88 +1,6 @@
 <?php
-
-include 'config.php';
-
 error_reporting(0);
-
-session_start();
-
-if (isset($_SESSION['username'])){
-    header("location: index.php");
-}
-/*
-if(iseet($_POST['submit'])){
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $phoneno = mysqli_real_escape_string($conn, $_POST['phoneno']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-    $usertype = $_POST['usertype'];
-
-    $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass' ";
-
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-
-        $error[] = 'Butiran pengguna wujud.';
-
-    } else {
-
-        if($pass != $cpass){
-            $error[] = 'password not match!';
-        } else {
-            $insert = "INSERT INTO login(username, password) VALUES ('$username', '$password', '$usertype')";
-            $insert = "INSERT INTO customer(name, phoneno, address) VALUES ('$name', '$phoneno', '$address')";
-            mysqli_query($conn, $insert);
-            header('location:login.php');
-        }
-        
-    }
-
-};
-*/
-
-
-/*
-if (isset($_POST['submit'])) {
-
-    $name = $_POST['name'];
-    $phoneno = $_POST['phoneno'];
-    $address = $_POST['address'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $cpass = $_POST['cpassword'];
-    $usertype = $_POST['usertype'];
-
-    if($password == $cpass){
-        
-        $sql = "SELECT * FROM login WHERE username = '$username'";
-        $result = mysqli_query($conn, $sql);
-        
-        if(!$result->num_rows->0){
-            $sql = "INSERT INTO login(username, password) VALUES ('$username', '$password', '$usertype')";
-            $sql = "INSERT INTO customer(name, phoneno, address) VALUES ('$name', '$phoneno', '$address')";
-            $result = mysqli_query($conn, $sql);
-
-            if($result) {
-                echo "<script>alert('Wow! User Registration Completed.')</script>";
-				$username = "";
-				$_POST['password'] = "";
-				$_POST['cpassword'] = "";
-            } else {
-                echo "<script>alert('Woops! Something Wrong Went.')</script>";
-            }
-        } else {
-            echo "<script>alert('User already exists.')</script>";
-        }
-    } else {
-        echo "<script>alert('Password Not Matched.')</script>";
-    }
-}
-*/
-
+include 'server.php';
 ?>
 
 <html>
@@ -108,26 +26,18 @@ if (isset($_POST['submit'])) {
                             <h2>Daftar Akaun</h2><br>
 
                             <?php
-                                if(isset($error)){
-                                    foreach($error as $error){
-                                        echo '<span class="error-msg">'.$error.'</span>';
-                                    };
-                                };
+                                include 'errors.php';
                             ?>
 
-                            Nama:       <input type="text" class="form-control" formname="name" required placeholder="Masukkan nama anda"><br><br>    
-                            No telefon:     <input type="text" class="form-control" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>
-                            Alamat:     <input type="text" class="form-control" name="address" required placeholder="Masukkan alamat anda"><br><br>
-                            Nama Pengguna:       <input type="text" class="form-control" name="username" required placeholder="Masukkan nama pengguna anda"><br><br>
-                            Kata Laluan Baru:       <input type="password" class="form-control" ="password" required placeholder="Masukkan kata laluan anda"><br><br>
-                            Sahkan Kata Laluan Baru:    <input type="password" class="form-control" name="cpassword" required placeholder="Masukkan kata laluan semula untuk pengesahan"><br><br>    
-                            Jenis pengguna:     <select name="usertype" class="form-select">
-                                                    <option value="customer">Pelanggan</option>
-                                                    <option value="staff">Staf</option>
-                                                </select> <br><br>
+                            Nama:       <input type="text" name="name" class="form-control" formname="name" required placeholder="Masukkan nama anda"><br><br>    
+                            No telefon:     <input type="text" name="phoneno" class="form-control" name="phoneno" required placeholder="Masukkan no telefon anda"><br><br>
+                            Alamat:     <input type="text" name="address" class="form-control" name="address" required placeholder="Masukkan alamat anda"><br><br>
+                            Nama Pengguna:       <input type="text" name="username" class="form-control" name="username" required placeholder="Masukkan nama pengguna anda"><br><br>
+                            Kata Laluan Baru:       <input type="password" name="password" class="form-control" ="password" required placeholder="Masukkan kata laluan anda"><br><br> 
+                            
                             <!-- Submit button -->
                             <div class="col d-flex justify-content-center">
-                                <button type="button" name="submit" class="btn btn-primary btn-block mb-4">Daftar</button>
+                                <button type="submit" name="Register" class="btn btn-primary btn-block mb-4">Daftar</button>
                             </div>
                         </form>
                     </div>            

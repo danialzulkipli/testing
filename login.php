@@ -1,47 +1,8 @@
 <?php
-/*
-include 'config.php';
+error_reporting(0);
+include 'server.php';
 
-if(iseet($_POST['submit'])){
-
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $phoneno = mysqli_real_escape_string($conn, $_POST['phoneno']);
-    $address = mysqli_real_escape_string($conn, $_POST['address']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $pass = md5($_POST['password']);
-    $cpass = md5($_POST['cpassword']);
-
-    $select = "SELECT * FROM login WHERE username = '$username' && password = '$pass'";
-
-    $result = mysqli_query($conn, $select);
-
-    if(mysqli_num_rows($result) > 0){
-
-        $row = mysqli_fetch_array($result);
-        
-        //ATTENTION!!! argument for user type
-        if($row['usertype'] == 'staff'){
-
-            $_SESSION['staff_name'] = $row['name'];
-            header('location: /staff/dashboard_staff.php');
-            
-        } else if ($row['usertype'] == 'customer'){
-
-            $_SESSION['admin_name'] = $row['name'];
-            header('location: dashboard_customer.php');
-
-        } else {
-            $error[] = 'Incorrect username or password'; 
-        }
-        
-    } 
-        
-}
-
-*/
 ?>
-
-
 
 <html>
     <head>
@@ -66,25 +27,21 @@ if(iseet($_POST['submit'])){
                             <h2 style="text-align:center;">Log Masuk Pelanggan</h2>
                             <br>
 
-                            <?php
-                                if(isset($error)){
-                                    foreach($error as $error){
-                                        echo '<span class="error-msg">'.$error.'</span>';
-                                    };
-                                };
+                            <form action="" method="post">
+
+                            <?php 
+                                include 'errors.php';
                             ?>
 
-
-                            <form>
                                 <!-- Username input -->
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="username" class="form-control" />
+                                    <input type="text" name="username" class="form-control" autocomplete="off"/>
                                     <label class="form-label" for="username">Nama Pengguna</label>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
-                                    <input type="password" id="password" class="form-control" />
+                                    <input type="password" name="password" class="form-control" autocomplete="off"/>
                                     <label class="form-label" for="password">Kata Laluan</label>
                                 </div>
 
@@ -98,7 +55,7 @@ if(iseet($_POST['submit'])){
 
                                 <!-- Submit button -->
                                 <div class="col d-flex justify-content-center">
-                                    <button type="button" class="btn btn-primary btn-block mb-4">Log Masuk</button>
+                                    <button type="submit" name="Login" class="btn btn-primary btn-block mb-4">Log Masuk</button>
                                 </div>
 
                                 <!-- Register buttons -->
@@ -111,9 +68,6 @@ if(iseet($_POST['submit'])){
                 </div>
             </div>
         </div>
-
-
-        
 
         <?php include 'footer.php'; ?>
 

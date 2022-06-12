@@ -1,3 +1,8 @@
+<?php
+error_reporting(0);
+include 'server.php';
+?>
+
 <html>
     <head>
         <!--Webpage title on browser -->
@@ -13,9 +18,6 @@
         
         <?php include 'header_dashboard.php';?>
 
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
-
         <div>
             <div class="d-flex flex-row">
 
@@ -27,6 +29,7 @@
                         <a href="dashboard.php" class="btn btn-primary">Dashboard</a><br>
                         <a href="appointment.php" class="btn btn-primary">Buat Temu Janji</a><br>
                         <a href="appointment_status.php" class="btn btn-primary">Status Temu Janji</a><br>
+                        <a href="deleteappointment.php" class="btn btn-primary">Buang Temu Janji</a><br>
                         <hr class="hline">
                        <a href="profile.php" class="btn btn-primary">Profil Pelanggan</a><br>
                     </div>
@@ -38,66 +41,30 @@
                 <div class="col-md-9">
                     <!--header kecil di bawah header utama -->
                     <div class="card card2 p-3">
-                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_POST["name"]; ?> </div>
+                        <div class="hello d-flex justify-content-end align-items-center mt-3">Selamat Sejahtera, <?php echo $_SESSION["username"]; ?> </div>
                     </div>
 
+                    <!--BUANG TEMU JANJI -->
                     <div class="container mt-3">
+                        <h2>Buang Temu Janji</h2>
 
-                        <h2>Profil Staf</h2>
+                        <form action="deleteappointment.php" method="post">
 
-                        <div class="col-lg-8">
-                        <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Nama</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">No Telefon</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Alamat</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Nama Haiwan</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
-                            </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                            <div class="col-sm-3">
-                                <p class="mb-0">Spesies</p>
-                            </div>
-                            <div class="col-sm-9">
-                                <p class="text-muted mb-0"><?php //echo $_POST["name"]; ?></p>
-                            </div>
-                            </div>
-                        </div>
+                            <?php include 'errors.php'; ?>
+
+                            <div class="input-group">
+                                <label>ID Temu Janji: &ensp; </label>
+                                <br>
+                                <input type="text" name="id_appointment2">
+	                        </div>
+
+                            <div class="input-group">
+		                        <button type="submit" name="cancel" class="btn btn-primary">Cancel</button>
+	                        </div>
+
+                        </form>
                     </div>
-
-                    </div>
-
-
+                
                 </div>
 
 
@@ -157,15 +124,6 @@
     .number{
         font-size: 20px;
         font-weight: 700;
-    }
-
-    .mb-0 {
-        font-family: Helvetica;
-        font-weight: 800;
-    }
-
-    .text-muted {
-        font-weight: 500;
     }
 
 

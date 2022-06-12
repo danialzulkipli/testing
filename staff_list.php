@@ -1,15 +1,6 @@
 <?php
-/*
-
-include 'config.php';
-
-session_start();
-
-if(!issset($_SESSION['username'])){
-    header('location:login.php');
-}
-*/
-
+error_reporting(0);
+include 'bookingserver.php';
 ?>
 
 
@@ -27,9 +18,6 @@ if(!issset($_SESSION['username'])){
     <body>
         
         <?php include 'header_dashboard.php';?>
-
-        <!--parking for designation -->
-        <!-- Welcome, --> <?php //echo $_POST["name"]; ?>
 
         <div>
             <div class="d-flex flex-row">
@@ -62,7 +50,31 @@ if(!issset($_SESSION['username'])){
 
                     <div class="container mt-3">
                         <h2>Senarai Staf Berdaftar</h2>
-                        <br>            
+                        <br>
+                        
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Staf</th>
+                                <th>No Telefon</th>
+                                <th>Alamat</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php $sql3="SELECT * FROM staff";
+                                    $result3 = $mysqli->query($sql3);
+                                    if(mysqli_num_rows($result3)>=1){
+                                        while ($row3 = $result3->fetch_assoc()) {
+
+                                            echo "<tr><td>".$row3["id_staff"]."</td><td>".$row3["staff_name"]."</td><td>".$row3["staff_phoneno"]."</td><td>".$row3["staff_address"]."</td></tr>";
+                                        }
+                                        echo "</table";
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
                         
                     </div>
 
